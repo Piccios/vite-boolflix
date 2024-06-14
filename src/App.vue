@@ -23,6 +23,8 @@ export default {
             language: 'it-IT'
           }
         });
+        console.log('Query:', query)
+        console.log('Movies:', response.data.results)
         this.movies = response.data.results;
       } catch (error) {
         console.error('Error searching movies:', error);
