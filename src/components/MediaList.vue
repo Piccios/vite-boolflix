@@ -1,12 +1,12 @@
 <script>
-import MovieItem from './MovieItem.vue'
+import MediaItem from './MediaItem.vue'
 
 export default {
     components: {
-        MovieItem
+        MediaItem
     },
     props: {
-        movies: {
+        items: {
             type: Array,
             required: true,
             default:() => []
@@ -16,9 +16,9 @@ export default {
 
 </script>
 <template>
-    <div v-for="movie in movies" :key="movie.id">
-        {{ console.log(movie) }}
-        <MovieItem :movie="movie" />
+    <div v-for="item in items" :key="item.id">
+        {{ console.log(item) }}
+        <MovieItem :item="item" />
     </div>
 </template>
 <style></style>

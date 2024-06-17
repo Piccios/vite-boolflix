@@ -1,33 +1,51 @@
 <script>
 import axios from 'axios';
 import SearchBar from './components/SearchBar.vue';
-import MovieList from './components/MovieList.vue';
+import MediaList from './components/MediaList.vue';
 
 export default {
   components: {
     SearchBar,
-    MovieList
+    MediaList
   },
   data() {
     return {
-      movies: []
+      items: []
     };
   },
   methods: {
-    async searchMovies(query) {
+    async searchMedia(query) {
       try {
-        const response = await axios.get('https://api.themoviedb.org/3/search/movie', {
-          params: {
-            api_key: '62e3cbd4b6904ca7307e4b3b03e03a2a',
-            query: query,
-            language: 'it-IT'
-          }
-        });
-        console.log('Query:', query)
-        console.log('Movies:', response.data.results)
-        this.movies = response.data.results;
+        const apiKey = '62e3cbd4b6904ca7307e4b3b03e03a2a';
+        const [movieResponse, tvResponse] = await Promise.all([
+          axios.get('https://api.themoviedb.org/3/search/movie', {
+            params: {
+              api_key: apiKey,
+              query: query,
+              language: 'it-IT'
+            }
+          }),
+          axios.get('https://api.themoviedb.org/3/search/tv', {
+            params: {
+              api_key: apiKey,
+              query: query,
+              language: 'it-IT'
+            }
+          })
+        ]);
+
+        const movies = movieResponse.data.results.map(item => ({
+          ...item,
+          type: 'movie'
+        }));
+        const tvShows = tvResponse.data.results.map(item => ({
+          ...item,
+          type: 'tv'
+        }));
+
+        this.items = [...movies, ...tvShows];
       } catch (error) {
-        console.error('Error searching movies:', error);
+        console.error('Error searching media:', error);
       }
     }
   }
@@ -36,8 +54,8 @@ export default {
 
 <template>
   <div id="app">
-    <SearchBar @search="searchMovies"/>
-    <MovieList :movies="movies"/>
+    <SearchBar @search="searchMedia"/>
+    <MediaList :items="items"/>
   </div>
 </template>
 
