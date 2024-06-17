@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^1.7.2",
+    "country-flag-icons": "^1.5.12",
     "scss": "^0.2.4",
     "vue": "^3.4.21"
   },
