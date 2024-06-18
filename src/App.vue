@@ -53,12 +53,15 @@ export default {
 </script>
 
 <template>
-  <div id="app">
+  <main>
+    <div id="app">
     <SearchBar @search="searchMedia"/>
     <MediaList :items="items"/>
   </div>
+</main>
+  
 </template>
 
 <style scoped>
-
+  
 </style>
