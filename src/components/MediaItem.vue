@@ -11,9 +11,14 @@ export default {
     computed: {
         imageUrl (){
             const baseUrl = 'https://image.tmdb.org/t/p/';
-            const size = 'w500';
+            const size = 'w342';
             return `${baseUrl}${size}${this.item.poster_path}`
         }
+    },
+    fullStars(){
+        const fullStars = Math.ceil(this.item.vote_average / 2);
+        console.log('Full Stars', fullStars);
+        return fullStars;
     },
     methods: {
         getFlagUrl(language) {
@@ -30,26 +35,42 @@ export default {
             const countryCode = languageToCountryMap[language] || 'un';
             return `https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/${countryCode}.svg`;
         }
-    }}
+    }
+}
 </script>
 
 <template>
-    <div class="item">
+        <div class="item">
+        
+
         <img :src="imageUrl" :alt="item.title || item.name">
         <p><strong>{{ item.type === 'movie' ? "Movie's Title:" : "Show's Title:" }}</strong>{{' ' + (item.title || item.name) }}</p>
         <p><strong>{{ item.type === 'movie' ? "Movie's original title:" : "Show's original name:" }}</strong>{{' ' + (item.original_title || item.original_name) }}</p>
         <p><strong>Original lenguage: </strong> <img class="flag" :src="getFlagUrl(item.original_language)" :alt="item.original_language"></p>
-        <p><strong>Average review: </strong>{{' ' + item.vote_average }}</p>
-    </div>
+        <p><strong>Average review: </strong></p> 
+            <span v-for="n in 5" :key="n">
+                <i :class="n < fullStars ? 'fas fa-star' : 'far fa-star'"></i>
+            </span>
+        </div>  
+    
 </template>
 
 <style scoped>
+
     .item{
         margin-bottom: 20px;
         padding: 10px;
         border: 1px solid black;
         border-radius: 5px;
+        width: 400px;
+        text-align: center;
     }
+
+    /* div.data{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    } */
 
     div.item p strong{
         text-decoration: underline;
@@ -59,5 +80,11 @@ export default {
         height: 20px;
         margin-left: 1.5rem;
     }
+
+    i.fa-star{
+        color: gold;
+    }
+
+
 
 </style>
