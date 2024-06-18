@@ -3,7 +3,7 @@ import { countries } from 'country-flag-icons';
 
 export default {
     props: {
-        movie: {
+        item: {
             type: Object,
             required: true
         }

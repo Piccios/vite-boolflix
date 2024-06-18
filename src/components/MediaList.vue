@@ -18,7 +18,7 @@ export default {
 <template>
     <div v-for="item in items" :key="item.id">
         {{ console.log(item) }}
-        <MovieItem :item="item" />
+        <MediaItem :item="item" />
     </div>
 </template>
 <style></style>
