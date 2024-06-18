@@ -92,7 +92,7 @@ export default {
     display : flex;
     flex-direction : column;
     box-shadow : 0 5px 20px rgba(0,0,0,0.5);
-    transition : 0.3s ease-in-out;
+    transition : 0.8s ease-in-out;
     border-radius : 15px;
     }
 
@@ -109,12 +109,10 @@ export default {
         color: gold;
     }
 
-
     .item .card:hover {
     height : 900px; 
     width: 400px;  
     }
-
 
     .item .card {
     position : relative;
@@ -138,7 +136,6 @@ export default {
     visibility : hidden;
     opacity : 0;
     transition : .3s ease-in-out;
-    
     }
 
     .item .card:hover .content {
