@@ -53,9 +53,15 @@ export default {
 </script>
 
 <template>
+  <header>
+    <div class="logo">
+      <img src="" alt="PiccioFlix_logo">
+    </div>
+    <SearchBar @search="searchMedia"/>
+  </header>
   <main>
     <div id="app">
-    <SearchBar @search="searchMedia"/>
+    
     <MediaList :items="items"/>
   </div>
 </main>
@@ -63,5 +69,9 @@ export default {
 </template>
 
 <style scoped>
-  
+  header{
+    display: flex;
+    justify-content: space-around;
+    margin: 2.5rem .5rem; 
+  }
 </style>
