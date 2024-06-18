@@ -45,12 +45,13 @@ Milestone 3:
         - Scelgo la dimensione con la width: es. w350
         - aggiungo la parte finale dell'URL passata dall'API
     
-    2. Modifico `MediaItem.vue` per includere l'immagine
-    
+    1.2 Modifico `MediaItem.vue` per includere l'immagine
+
+    2. Modifico il voto numerico fornito dal db in un voto da 1 a 5
+
+    2.1 Tramite FontAwesome utilizzo le icone delle stelle per rappresentare il voto
 
 
-Trasformiamo poi il voto da 1 a 10 decimale in un numero intero da 1 a 5, così da permetterci di stampare a schermo un numero di stelle piene che vanno da 1 a 5, lasciando le restanti vuote (troviamo le icone in FontAwesome).
-Arrotondiamo sempre per eccesso all’unità successiva, non gestiamo icone mezze piene (o mezze vuote :P)
 
 Milestone 4:
 Trasformiamo quello che abbiamo fatto fino ad ora in una vera e propria webapp, creando un layout completo simil-Netflix:
