@@ -55,7 +55,8 @@ export default {
 <template>
   <header>
     <div class="logo">
-      <img src="" alt="PiccioFlix_logo">
+      <img class="logo" src="../src/assets/logo.png" alt="PiccioFlix_logo">
+      <h1>PiccioFlix</h1>
     </div>
     <SearchBar @search="searchMedia"/>
   </header>
@@ -72,12 +73,23 @@ export default {
   header{
     display: flex;
     justify-content: space-around;
-    margin: 2.5rem .5rem; 
+    margin: 1.5rem .5rem; 
+    align-items: center;
+    color: rgb(16, 63, 106);
   }
 
   main{
     display: flex;
     justify-content: space-between;
     margin: 0 2.5rem;
+  }
+
+  div.logo{
+    display: flex;
+    align-items: center;
+  }
+
+  img.logo{
+    height: 150px;
   }
 </style>

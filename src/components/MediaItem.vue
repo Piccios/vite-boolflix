@@ -110,7 +110,7 @@ export default {
     }
 
     .item .card:hover {
-    height : 900px; 
+    height : 750px; 
     width: 400px;  
     }
 
@@ -135,7 +135,7 @@ export default {
     text-align : center;
     visibility : hidden;
     opacity : 0;
-    transition : .3s ease-in-out;
+    transition: ease-in-out 0.8s;
     }
 
     .item .card:hover .content {
