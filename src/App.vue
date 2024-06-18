@@ -74,4 +74,10 @@ export default {
     justify-content: space-around;
     margin: 2.5rem .5rem; 
   }
+
+  main{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2.5rem;
+  }
 </style>

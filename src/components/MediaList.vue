@@ -16,9 +16,15 @@ export default {
 
 </script>
 <template>
-    <div v-for="item in items" :key="item.id">
+    <div id="item" v-for="item in items" :key="item.id">
         {{ console.log(item) }}
         <MediaItem :item="item" />
     </div>
 </template>
-<style></style>
+<style scoped>
+    div#item{ 
+        display: inline-block;
+        margin: 1rem;
+
+    }
+</style>
