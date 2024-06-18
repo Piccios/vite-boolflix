@@ -51,10 +51,12 @@ Milestone 3:
 
     2.1 Tramite FontAwesome utilizzo le icone delle stelle per rappresentare il voto
 
-
-
 Milestone 4:
-Trasformiamo quello che abbiamo fatto fino ad ora in una vera e propria webapp, creando un layout completo simil-Netflix:
-Un header che contiene logo e search bar
-Dopo aver ricercato qualcosa nella searchbar, i risultati appaiono sotto forma di “card” in cui lo sfondo è rappresentato dall’immagine di copertina (consiglio la poster_path con w342)
-Andando con il mouse sopra una card (on hover), appaiono le informazioni aggiuntive già prese nei punti precedenti più la overview
+    1. Elaboro il layout e lo stile della web app
+    2. Creo un layout completo simil-Netflix:
+        - Un header che contiene logo e search bar
+
+    3. Dopo aver ricercato qualcosa nella searchbar, i risultati appaiono sotto forma di “card” in cui lo sfondo è rappresentato dall’immagine di copertina
+
+    4. Andando con il mouse sopra una card (on hover), appaiono le informazioni aggiuntive già prese nei punti precedenti più la overview
+
