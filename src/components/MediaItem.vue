@@ -41,16 +41,32 @@ export default {
 
 <template>
         <div class="item">
-        
+            <div class="card">
+                <div class="image">
+                    <img :src="imageUrl" :alt="item.title || item.name">
+                </div>
+                
+                <div class="content">
+                    <p>
+                        <strong>{{ item.type === 'movie' ? "Movie's Title:" : "Show's Title:" }}</strong>{{' ' + (item.title || item.name) }}
+                    </p>
 
-        <img :src="imageUrl" :alt="item.title || item.name">
-        <p><strong>{{ item.type === 'movie' ? "Movie's Title:" : "Show's Title:" }}</strong>{{' ' + (item.title || item.name) }}</p>
-        <p><strong>{{ item.type === 'movie' ? "Movie's original title:" : "Show's original name:" }}</strong>{{' ' + (item.original_title || item.original_name) }}</p>
-        <p><strong>Original lenguage: </strong> <img class="flag" :src="getFlagUrl(item.original_language)" :alt="item.original_language"></p>
-        <p><strong>Average review: </strong></p> 
-            <span v-for="n in 5" :key="n">
-                <i :class="n < fullStars ? 'fas fa-star' : 'far fa-star'"></i>
-            </span>
+                    <p>
+                        <strong>{{ item.type === 'movie' ? "Movie's original title:" : "Show's original name:" }}</strong>{{' ' + (item.original_title || item.original_name) }}
+                    </p>
+
+                    <p>
+                        <strong>Original lenguage: </strong> <img class="flag" :src="getFlagUrl(item.original_language)" :alt="item.original_language">
+                    </p>
+
+                    <p>
+                        <strong>Average review: </strong>
+                    </p> 
+                        <span v-for="n in 5" :key="n">
+                            <i :class="n < fullStars ? 'fas fa-star' : 'far fa-star'"></i>
+                        </span>
+                </div>
+            </div>
         </div>  
     
 </template>
@@ -58,19 +74,27 @@ export default {
 <style scoped>
 
     .item{
-        margin-bottom: 20px;
-        padding: 10px;
-        border: 1px solid black;
-        border-radius: 5px;
-        width: 400px;
-        text-align: center;
+    position : relative;
+    width : 350px;
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    flex-wrap : wrap;
+    padding : 30px;  
     }
 
-    /* div.data{
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-    } */
+    .item .card {
+    position: relative;
+    height : 215px;  
+    background-color : #fff;
+    margin : 30px 10px;
+    padding : 20px 15px;
+    display : flex;
+    flex-direction : column;
+    box-shadow : 0 5px 20px rgba(0,0,0,0.5);
+    transition : 0.3s ease-in-out;
+    border-radius : 15px;
+    }
 
     div.item p strong{
         text-decoration: underline;
@@ -83,6 +107,44 @@ export default {
 
     i.fa-star{
         color: gold;
+    }
+
+
+    .item .card:hover {
+    height : 900px; 
+    width: 400px;  
+    }
+
+
+    .item .card {
+    position : relative;
+    width : 260px;
+    height : 460px;
+    top : -20%;
+    left: 8px;
+    box-shadow : 0 5px 20px rgba(0,0,0,0.2);
+    z-index : 1;
+    background-color: aqua;
+    }
+
+    .item .card img {
+    border-radius : 15px;
+    }
+
+    .item .card .content {
+    padding : 10px 15px;
+    color : #111;
+    text-align : center;
+    visibility : hidden;
+    opacity : 0;
+    transition : .3s ease-in-out;
+    
+    }
+
+    .item .card:hover .content {
+    visibility : visible;
+    opacity : 1;
+    transition-delay: 0.2s;
     }
 
 
